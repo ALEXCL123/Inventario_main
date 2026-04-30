@@ -4,7 +4,7 @@
     if (!usuarioLogueado) {
         window.location.href = "login.html";
     }
-     const API_URL = 'http://localhost:8080/api'; // Cambia esto si tu backend está en otra URL o puerto
+     const API_URL = "https://Inventario_backend.onrender.com/api"; // Cambia esto si tu backend está en otra URL o puerto
         let productDataCache = {};
         let resumenFinancieroChart, tendenciasChart;
 
@@ -44,7 +44,7 @@
 
         async function loadInitialData() {
             try {
-                const response = await fetch("http://localhost:8080/api/categorias");
+                const response = await fetch(`${API_URL}/categorias`);
                 const data = await response.json();
 
                 populateCategories(data);
@@ -113,7 +113,7 @@
                 const nombre = document.getElementById('c_nombre').value;
 
                 try {
-                    const response = await fetch("http://localhost:8080/api/categorias", {
+                    const response = await fetch(`${API_URL}/categorias`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -148,7 +148,7 @@
                 };
 
                 try {
-                    const response = await fetch("http://localhost:8080/api/productos", {
+                    const response = await fetch(`${API_URL}/productos`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -528,7 +528,7 @@
 
             try {
                 const response = await fetch(
-                    `http://localhost:8080/api/productos/buscar?query=${encodeURIComponent(query)}`
+                    `${API_URL}/productos/buscar?query=${encodeURIComponent(query)}`
                 );
 
                 if (!response.ok) {
@@ -662,7 +662,7 @@
             tableBody.innerHTML = '<tr><td colspan="6">Cargando...</td></tr>';
 
             try {
-                const response = await fetch('http://localhost:8080/api/productos');
+                const response = await fetch(`${API_URL}/productos`);
                 const data = await response.json();
 
                 if (data.length > 0) {
