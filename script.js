@@ -1,3 +1,9 @@
+     // Verificar sesión
+    const usuarioLogueado = localStorage.getItem("usuario");
+
+    if (!usuarioLogueado) {
+        window.location.href = "login.html";
+    }
      const API_URL = 'http://localhost:8080/api'; // Cambia esto si tu backend está en otra URL o puerto
         let productDataCache = {};
         let resumenFinancieroChart, tendenciasChart;
@@ -177,6 +183,12 @@
             document.getElementById('cargarInventarioBtn').addEventListener('click', loadInventario);
             document.getElementById('cargarDatosGraficosBtn').addEventListener('click', handleLoadDashboard);
             document.getElementById('calcularResumenBtn').addEventListener('click', calcularResumenFinanciero);
+
+            // LOGOUT
+            document.getElementById("logoutBtn").addEventListener("click", () => {
+                localStorage.removeItem("usuario");
+                window.location.href = "login.html";
+            });
         }
 
         // ================= DASHBOARD FUNCTIONS =================
