@@ -4,7 +4,7 @@
     if (!usuarioLogueado) {
         window.location.href = "login.html";
     }
-     const API_URL = "https://Inventario_backend.onrender.com/api"; // Cambia esto si tu backend está en otra URL o puerto
+     const API_URL = "https://inventario-backend-avcn.onrender.com"; // Cambia esto si tu backend está en otra URL o puerto
         let productDataCache = {};
         let resumenFinancieroChart, tendenciasChart;
 
