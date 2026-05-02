@@ -3,7 +3,7 @@ async function login() {
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("https://inventario-backend-avcn.onrender.com/api/usuarios/login", {
+        const response = await fetch("https://inventario-backend-5qg3.onrender.com/api/usuarios/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
