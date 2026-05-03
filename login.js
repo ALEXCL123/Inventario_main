@@ -1,3 +1,12 @@
+/*// 🔐 SI YA ESTÁ LOGUEADO → IR DIRECTO AL DASHBOARD
+document.addEventListener("DOMContentLoaded", () => {
+    const usuario = sessionStorage.getItem("usuario");
+
+    if (usuario) {
+        window.location.href = "index.html";
+    }
+});*/
+
 async function login() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
