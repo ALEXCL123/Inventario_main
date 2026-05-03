@@ -1,5 +1,5 @@
      // Verificar sesión
-    const usuarioLogueado = sessionStorage.getItem("usuario");
+    const usuarioLogueado = localStorage.getItem("usuario");
 
     if (!usuarioLogueado) {
         window.location.href = "login.html";
