@@ -153,3 +153,26 @@ body {
   font-size: 11px;
   color: #6b7280;
 }
+#mensaje {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 1rem;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: none; /* oculto por defecto */
+}
+
+#mensaje.exito {
+    display: block;
+    background-color: #e6f9f0;
+    color: #0eb88d;
+    border: 1px solid #9FE1CB;
+}
+
+#mensaje.error {
+    display: block;
+    background-color: #FCEBEB;
+    color: #A32D2D;
+    border: 1px solid #F7C1C1;
+}

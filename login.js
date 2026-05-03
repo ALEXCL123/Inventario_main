@@ -1,12 +1,3 @@
-// 🔐 SI YA ESTÁ LOGUEADO → IR DIRECTO AL DASHBOARD
-document.addEventListener("DOMContentLoaded", () => {
-    const usuario = sessionStorage.getItem("usuario");
-
-    if (usuario) {
-        window.location.href = "index.html";
-    }
-});
-
 async function login() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -25,20 +16,25 @@ async function login() {
 
         if (response.ok) {
             const usuario = await response.json();
-
             localStorage.setItem("usuario", JSON.stringify(usuario));
 
-            document.getElementById("mensaje").innerText =
-                "Login correcto";
+            // ✅ Verde — éxito
+            mensaje.className = "exito";
+            mensaje.innerText = "✓ Login correcto, redirigiendo...";
 
-            window.location.href = "index.html";
-        } else {
-            document.getElementById("mensaje").innerText =
-                "Credenciales incorrectas";
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1000); // espera 1 segundo para que vean el mensaje
+        }
+        else {
+            // ❌ Rojo — credenciales incorrectas
+            mensaje.className = "error";
+            mensaje.innerText = "✗ Correo o contraseña incorrectos";
         }
 
     } catch (error) {
-        document.getElementById("mensaje").innerText =
-            "Error de conexión";
+        // 🔴 Rojo — fallo de red
+        mensaje.className = "error";
+        mensaje.innerText = "✗ Error de conexión con el servidor";
     }
 }
